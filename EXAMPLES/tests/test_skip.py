@@ -13,7 +13,7 @@ def test_two():
 
 # Skip this test if current platform is not Windows
 @pytest.mark.skipif(
-    sys.platform != 'win32', 
+    sys.platform != 'win32', #  'linux' 'darwin'
     reason="only implemented on Windows"
 )
 def test_three():

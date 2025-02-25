@@ -35,3 +35,6 @@ def test_last_name(person):  # pass fixture as test parameter
 
 def test_john_tyler_is_from_virginia(presidents):
     assert presidents[9]['birthstate'] == 'Virginia'  # John Tyler is 10th president
+
+if __name__ == "__main__":
+    pytest.main([__file__, '-v'])

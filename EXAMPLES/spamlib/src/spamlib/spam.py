@@ -8,6 +8,9 @@ class Spam():
     def __init__(self, number):
         self._value = ham(number)
 
+    def doit(self):
+        return "doit"
+
     @property
     def value(self):
         return self._value

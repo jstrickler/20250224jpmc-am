@@ -1,6 +1,6 @@
 import pytest
 
-COUNTER_KEY = 'test_cache/counter'
+COUNTER_KEY = 'test_cache/counter'  # category/specific_key
 
 def test_cache(cache):  # cache persists values between test runs
     value = cache.get(COUNTER_KEY, 0)
@@ -16,7 +16,7 @@ def hello():
 def test_capsys(capsys):
     hello()  # Call function that writes text to STDOUT
     out, err = capsys.readouterr()  # Get captured output
-    print("STDOUT:", out)
+    assert out == 'Hello, pytesting world\n'
 
 def bhello():
     print(b"Hello, binary pytesting world\n")
@@ -25,6 +25,7 @@ def test_capsysbinary(capsysbinary):
     bhello()  # Call function that writes binary text to STDOUT
     out, err = capsysbinary.readouterr()  # Get captured output
     print("BINARY STDOUT:", out)
+    assert out == b'Hello, pytesting world\n'
 
 def test_temp_dir1(tmpdir):
     print("TEMP DIR:", str(tmpdir))  # tmpdir fixture provides unique temporary folder name

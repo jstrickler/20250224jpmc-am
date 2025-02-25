@@ -1,5 +1,6 @@
 import inspect
 import geometry
+from pprint import pprint
 from carddeck import CardDeck
 
 deck = CardDeck("Leonard")
@@ -37,4 +38,5 @@ print("Function spec for Ham:", inspect.getfullargspec(spam))
 print()
 
 # get frame (function call stack) info
-print("Current frame:", inspect.getframeinfo(inspect.currentframe()))
+print("Current frame:", end=" ")
+pprint(inspect.getframeinfo(inspect.currentframe()))

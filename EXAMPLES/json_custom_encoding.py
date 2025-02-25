@@ -20,13 +20,6 @@ parrots = [  # list of Parrot objects
     Parrot('Roger', 'red'),
 ]
 
-def encode(obj):  # custom JSON encoder function
-    if isinstance(obj, date):  # check for date object
-        return obj.ctime()  # convert date to string
-    elif isinstance(obj, Parrot):  # check for Parrot object
-        return {'name': obj.name, 'color': obj.color}  # convert Parrot to dictionary
-    return obj  # if not processed, return object for JSON to parse with default parser
-
 
 data = {  # dictionary of arbitrary data
     'spam': [1, 2, 3],
@@ -34,6 +27,14 @@ data = {  # dictionary of arbitrary data
     'toast': date(2014, 8, 1),
     'parrots': parrots,
 }
+
+def encode(obj):  # custom JSON encoder function
+    if isinstance(obj, date):  # check for date object
+        return obj.ctime()  # convert date to string
+    elif isinstance(obj, Parrot):  # check for Parrot object
+        return {'name': obj.name, 'color': obj.color}  # convert Parrot to dictionary
+    return obj  # if not processed, return object for JSON to parse with default parser
+
 
 # convert Python data to JSON data;
 # 'default' parameter specifies function for custom encoding;
