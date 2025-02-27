@@ -8,15 +8,14 @@ def index():
 
 @app.route('/username/<username>')
 def user_name(username):
-    user_agent = request.headers.get('User-Agent')
-    print(f"{request.headers = }")
-    
-    accept_language = request.headers.get('Accept-Language')
+    data = {
+        'username': username.replace('+', ' '),
+        'browser': request.headers.get('User-Agent'),
+        'accept_language': request.headers.get('Accept-Language'),
+    }
     return render_template(
         'flask_hello.html',
-        browser=user_agent,
-        accept_language=accept_language,
-        username=username.replace('+',' '),
+        data=data,
     )
 
 if __name__ == '__main__':

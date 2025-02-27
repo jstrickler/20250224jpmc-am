@@ -5,8 +5,8 @@
     <title></title>
 </head>
 <body>
-<h1>Welcome, {{ username }}!</h1>
-<b>Browser:</b> {{ browser }}<br/>
-<b>Accept language:</b> {{ accept_language }}<br/>
+<h1>Welcome, {{ data.username | upper }}!</h1>
+<b>Browser:</b> {{ data.browser }}<br/>
+<b>Accept language:</b> {{ data.accept_language }}<br/>
 </body>
 </html>

@@ -8,8 +8,8 @@ session = requests.Session()
 session.headers.update(
     {
         'token': TOKEN, 
-        'UserAgent': "cja-tech.com,jstrickler@gmail.com", 
-        'Accept': "application/GeoJSON"
+        'UserAgent': "https://www.cja-tech.com,jstrickler@gmail.com", 
+        'Accept': "*/*"
     }
 )
 
@@ -21,7 +21,7 @@ response = session.get(
         'startdate': '1970-01-01',
         'enddate': '1970-12-31',
     },
-    timeout=10,
+#    timeout=10,
 )
 
-pprint(response.json())
+pprint(response.text)

@@ -8,7 +8,7 @@ env = Environment(
 list_template = env.get_template("president_list.html")
 detail_template = env.get_template("president_detail.html")
 
-presidents = [President(i) for i in range(1, 47)]  # get list of presidents
+presidents = [President(i) for i in range(1, 48)]  # get list of presidents
 
 president_list = list_template.render(title="PRESIDENT LIST", presidents=presidents)
 print(president_list)
