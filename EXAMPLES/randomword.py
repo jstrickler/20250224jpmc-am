@@ -12,8 +12,13 @@ class RandomWord():
         :return: A random word as a string.
         """
         return random.choice(self._word_list)
+    
+    def __len__(self):
+        return len(self._word_list)    
 
 if __name__ == '__main__':
     w = RandomWord()
+    #  w.get_word()
     for _ in range(10):
         print(w())
+    print(len(w))
